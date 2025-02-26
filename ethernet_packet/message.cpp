@@ -79,6 +79,7 @@ namespace ethernet_packet {
     }
 
     void make_tcp_header(uint16_t src_port, uint16_t dst_port, std::vector<uint8_t> &buffer,uint8_t flag) {
+        size_t tcp_header_start = buffer.size();
         buffer.push_back(static_cast<uint8_t>((src_port >> 8) & 0xFF));
         buffer.push_back(static_cast<uint8_t>(src_port & 0xFF));
 
@@ -114,6 +115,13 @@ namespace ethernet_packet {
 
         buffer.push_back(0x00);
         buffer.push_back(0x00);
+
+        size_t ip_header_start=14;
+        std::string empty_payload = "";
+
+        uint16_t checksum = calculate_tcp_checksum(buffer, ip_header_start,tcp_header_start,empty_payload);
+        buffer[checksum_pos] = static_cast<uint8_t>((checksum >> 8) & 0xFF);
+        buffer[checksum_pos + 1] = static_cast<uint8_t>(checksum & 0xFF);
     }
 
     void print_packet(std::vector<uint8_t> &buffer) {

@@ -42,9 +42,12 @@ namespace ethernet_packet {
     void make_ip_header(uint32_t src_ip_, uint32_t dst_ip_, uint8_t ttl, std::string &payload,
                         std::vector<uint8_t> &buffer);
 
-    void make_tcp_header(uint16_t src_port, uint16_t dst_port, std::vector<uint8_t> &buffer,uint8_t flag);
+    void make_tcp_header(uint16_t src_port, uint16_t dst_port, std::vector<uint8_t> &buffer, uint8_t flag);
 
     void print_packet(std::vector<uint8_t> &buffer);
 
     uint16_t calculate_ip_checksum(std::vector<uint8_t> &buffer, size_t header_start, size_t checksum_pos);
+
+    uint16_t calculate_tcp_checksum(std::vector<uint8_t> &buffer, size_t ip_header_start, size_t tcp_header_start,
+                                    const std::string &payload);
 }

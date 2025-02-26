@@ -5,6 +5,8 @@
 #include <message.h>
 #include <arpa/inet.h>
 
+#include "packet_transfer.hpp"
+
 namespace tcp_stack {
     tcp_stack::ConnectionState ready_connection(std::string dst_mac, std::string src_mac, tcp_stack::CustomKey &key) {
         tcp_stack::ConnectionState state;
@@ -24,10 +26,23 @@ namespace tcp_stack {
         ethernet_packet::make_tcp_header(key.srcPort_, key.dstPort_, buffer,0x02);
 
         // Initialize connection state
-        // state.initiator_state_ = tcp_stack::TCPState::CLOSED;
-        // state.responder_state_ = tcp_stack::TCPState::CLOSED;
+        state.initiator_state_ = tcp_stack::TCPState::CLOSED;
+        state.responder_state_ = tcp_stack::TCPState::CLOSED;
+
+        std::string interface_name = "enp5s0";
+        if (tcp_stack::send_raw_packet(buffer, interface_name)) {
+            std::cout << "Packet sent successfully!" << std::endl;
+        } else {
+            std::cerr << "Packet sending failed!" << std::endl;
+        }
 
         // Store the connection state
         return state;
     }
+
+    ConnectionState establish_connection(std::string dst_mac, std::string src_mac,tcp_stack::ConnectionState st) {
+        // update seq number in the packet
+        // ack number ke liye you wouldned the previous packet.
+    }
+
 }

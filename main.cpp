@@ -45,16 +45,13 @@ int main(){
     if (connections_map.find(key) == connections_map.end()) {
         tcp_stack::ConnectionState st;
         connections_map[key]=tcp_stack::ready_connection(config.dst_mac, config.src_mac, key);
-
-        std::string interface_name = "enp5s0";
-
-        if (tcp_stack::send_raw_packet(connections_map[key].packet_, interface_name)) {
-            std::cout << "Packet sent successfully!" << std::endl;
-        } else {
-            std::cerr << "Packet sending failed!" << std::endl;
-        }
-
+    } else {
+        // tcp_stack::ConnectionState st = connections_map[key];
+        // connections_map[key]=tcp_stack::establish_connection(config.dst_mac, config.src_mac, st);
     }
+
+
+
     // std::vector<uint8_t> buffer;
     // std::string payload="Hello";
     // ethernet_packet::make_eth_header(config.dst_mac,config.src_mac,buffer);

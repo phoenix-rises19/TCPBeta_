@@ -62,8 +62,8 @@ namespace tcp_stack {
     }__attribute__((packed));
 
     struct ConnectionState {
-        // TCPState initiator_state_;
-        // TCPState responder_state_;
+        TCPState initiator_state_;
+        TCPState responder_state_;
         // uint32_t initiatorIP_;
         // uint32_t initiator_seq_;
         // uint32_t responder_seq_;
@@ -76,4 +76,6 @@ namespace tcp_stack {
     }__attribute__((packed));
 
     ConnectionState ready_connection(std::string dst_mac, std::string src_mac,tcp_stack::CustomKey& key);
+    ConnectionState establish_connection(std::string dst_mac, std::string src_mac,tcp_stack::ConnectionState& st);
+
 }

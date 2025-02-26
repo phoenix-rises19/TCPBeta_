@@ -13,4 +13,8 @@ add_executable(TCP_Beta main.cpp
         tcp_stack/packet_transfer.cpp
         config.cpp)
 
+add_executable( os_echo_server
+        server/os_echo_server.cpp
+        server/os_echo_server.hpp)
+
 target_link_libraries(TCP_Beta PRIVATE nlohmann_json::nlohmann_json)

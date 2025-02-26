@@ -15,7 +15,8 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -30,7 +31,8 @@
 					"name" : "TCP_Beta",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -39,8 +41,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "TCP_Beta::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-TCP_Beta-Debug-c058f0dba7d28fe602a6.json",
+					"jsonFile" : "target-TCP_Beta-Debug-f4b07f095f38ec7ef8a2.json",
 					"name" : "TCP_Beta",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "os_echo_server::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-os_echo_server-Debug-75e7f871e8bafcde5388.json",
+					"name" : "os_echo_server",
 					"projectIndex" : 0
 				}
 			]

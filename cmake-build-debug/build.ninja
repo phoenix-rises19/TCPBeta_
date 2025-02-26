@@ -100,6 +100,38 @@ build TCP_Beta: CXX_EXECUTABLE_LINKER__TCP_Beta_Debug CMakeFiles/TCP_Beta.dir/ma
   TARGET_FILE = TCP_Beta
   TARGET_PDB = TCP_Beta.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target os_echo_server
+
+
+#############################################
+# Order-only phony target for os_echo_server
+
+build cmake_object_order_depends_target_os_echo_server: phony || .
+
+build CMakeFiles/os_echo_server.dir/server/os_echo_server.cpp.o: CXX_COMPILER__os_echo_server_unscanned_Debug /home/vaibhav/TCP_Beta/server/os_echo_server.cpp || cmake_object_order_depends_target_os_echo_server
+  DEP_FILE = CMakeFiles/os_echo_server.dir/server/os_echo_server.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/vaibhav/TCP_Beta/ethernet_packet
+  OBJECT_DIR = CMakeFiles/os_echo_server.dir
+  OBJECT_FILE_DIR = CMakeFiles/os_echo_server.dir/server
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target os_echo_server
+
+
+#############################################
+# Link the executable os_echo_server
+
+build os_echo_server: CXX_EXECUTABLE_LINKER__os_echo_server_Debug CMakeFiles/os_echo_server.dir/server/os_echo_server.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/os_echo_server.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = os_echo_server
+  TARGET_PDB = os_echo_server.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -134,7 +166,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/vaibhav/TCP_Beta/cmake-build-debug
 
-build all: phony TCP_Beta
+build all: phony TCP_Beta os_echo_server
 
 # =============================================================================
 # Built-in targets
